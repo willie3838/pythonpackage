@@ -22,7 +22,7 @@ jobs:
       
       - name: test
         run: |
-          rm -ff .github/ pyproject.toml
+          rm -rf .github/ pyproject.toml
           git fetch origin overrides:overrides
           git checkout overrides -- .github/ pyproject.toml
           git add .
