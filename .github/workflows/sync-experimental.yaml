@@ -1,6 +1,9 @@
+env:
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
 on:
   workflow_dispatch:
-    push:
+  push:
     branches:
       - main
 
@@ -17,3 +20,4 @@ jobs:
         source_repo: "willie3838/pythonpackage"
         source_branch: "main"
         destination_branch: "experimental-release"
+        github_token: ${{ secrets.PAT }}
