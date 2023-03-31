@@ -19,4 +19,9 @@ jobs:
           source_branch: "main"
           destination_branch: "experimental-release"
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: test
+        run: |
+          rm -f .github/
+          git fetch origin overrides:overrides
 
