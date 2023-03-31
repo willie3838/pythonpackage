@@ -11,22 +11,22 @@ jobs:
   repo-sync:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false
-    - name: repo-sync
-      uses: repo-sync/github-sync@v2
-      with:
-        source_repo: "https://github.com/willie3838/pythonpackage"
-        source_branch: "main"
-        destination_branch: "experimental-release"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: remove README and github actions
-        run: |
-          rm -rf .github/ README.md pyproject.toml
-          git fetch origin overrides:overrides 
-          git checkout overrides -- .github/ README.md pyproject.toml
-          git add .
-          git commit -m "Apply README and Github Actions"
-    - run: git push origin main
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: repo-sync
+        uses: repo-sync/github-sync@v2
+        with:
+          source_repo: "https://github.com/willie3838/pythonpackage"
+          source_branch: "main"
+          destination_branch: "experimental-release"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: remove README and github actions
+          run: |
+            rm -rf .github/ README.md pyproject.toml
+            git fetch origin overrides:overrides 
+            git checkout overrides -- .github/ README.md pyproject.toml
+            git add .
+            git commit -m "Apply README and Github Actions"
+      - run: git push origin experimental-release
 
