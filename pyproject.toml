@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "testwill3838"
-version = "0.0.5"
+version = "0.0.6b"
 description = ""
 authors = ["William"]
 readme = "README.md"
