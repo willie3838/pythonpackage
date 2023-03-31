@@ -1,22 +1,35 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[project]
-name = "testwill3838"
+[tool.poetry]
+name = "pythonproject"
 version = "0.0.5"
-authors = [
-  { name="William", email="william@cohere.com" },
-]
-description = "A small example package"
+description = ""
+authors = ["William"]
 readme = "README.md"
-requires-python = ">=3.7"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
 
-[project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+[tool.black]
+line-length = 120
+target_version = ['py38']
+include = '\.py$'
+
+[tool.isort]
+profile = "black"
+skip_glob = '^((?!py$).)*$' # python files
+
+[tool.poetry.dependencies]
+python = "^3.7, <4.0"
+requests = "^2.0"
+aiohttp = "^3.0"
+backoff = "^2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+pytest-asyncio = "^0.20.2"
+black = "^22.10.0"
+isort = "^5.10.1"
+pre-commit = "^2.20.0"
+autoflake = "^1.7.8"
+Sphinx = "^5.0"
+sphinx-rtd-theme = "^1.2.0"
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.core.masonry.api"
