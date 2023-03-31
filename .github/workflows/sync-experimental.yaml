@@ -1,0 +1,27 @@
+name: sync-experimental
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "willie3838/pythonpackage"
+          source_branch: "main"
+          destination_repo: "willie3838/pythonpackage"
+          destination_branch: "experimental-release"
+      - name: remove README and github actions
+        run: |
+          rm -rf .github/ README.md pyproject.toml
+          git fetch origin overrides:overrides 
+          git checkout overrides -- .github/ README.md pyproject.toml
+          git add .
+          git commit -m "Apply README, Github Actions, and pyproject.toml"
+      - run: git push origin experimental-release
+
