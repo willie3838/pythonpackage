@@ -17,7 +17,7 @@ jobs:
     - name: repo-sync
       uses: repo-sync/github-sync@v2
       with:
-        source_repo: "willie3838/pythonpackage"
+        source_repo: "https://github.com/willie3838/pythonpackage"
         source_branch: "main"
         destination_branch: "experimental-release"
-        github_token: ${{ secrets.PAT }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
