@@ -16,6 +16,10 @@ jobs:
           source_branch: "main"
           destination_repo: "willie3838/pythonpackage"
           destination_branch: "experimental-release"
+      - name: setup git config
+        run: |
+          git config user.name "willie3838"
+          git config user.email "william@cohere.com"
       - name: remove README and github actions
         run: |
           rm -rf .github/ README.md pyproject.toml
