@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pythonproject"
+name = "src"
 version = "0.0.5"
 description = ""
 authors = ["William"]
